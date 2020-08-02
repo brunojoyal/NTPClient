@@ -1,4 +1,4 @@
-/**
+ /**
  * The MIT License (MIT)
  * Copyright (c) 2015 by Fabrice Weinberg
  *
@@ -30,7 +30,7 @@ NTPClient::NTPClient(UDP& udp, long timeOffset) {
   this->_timeOffset     = timeOffset;
 }
 
-NTPClient::NTPClient(UDP& udp, const char* poolServerName) {
+NTPClient::NTPClient(UDP& udp, char * poolServerName) {
   this->_udp            = &udp;
   this->_poolServerName = poolServerName;
 }
@@ -41,7 +41,7 @@ NTPClient::NTPClient(UDP& udp, IPAddress poolServerIP) {
   this->_poolServerName = NULL;
 }
 
-NTPClient::NTPClient(UDP& udp, const char* poolServerName, long timeOffset) {
+NTPClient::NTPClient(UDP& udp, char * poolServerName, long timeOffset) {
   this->_udp            = &udp;
   this->_timeOffset     = timeOffset;
   this->_poolServerName = poolServerName;
@@ -54,7 +54,7 @@ NTPClient::NTPClient(UDP& udp, IPAddress poolServerIP, long timeOffset){
   this->_poolServerName = NULL;
 }
 
-NTPClient::NTPClient(UDP& udp, const char* poolServerName, long timeOffset, unsigned long updateInterval) {
+NTPClient::NTPClient(UDP& udp, char * poolServerName, long timeOffset, unsigned long updateInterval) {
   this->_udp            = &udp;
   this->_timeOffset     = timeOffset;
   this->_poolServerName = poolServerName;
@@ -227,7 +227,7 @@ void NTPClient::setUpdateCallback(NTPUpdateCallbackFunction f) {
   _updateCallback = f;
 }
 
-void NTPClient::setPoolServerName(const char* poolServerName) {
+void NTPClient::setPoolServerName(char * poolServerName) {
     this->_poolServerName = poolServerName;
 }
 

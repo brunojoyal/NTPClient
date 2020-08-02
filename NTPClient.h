@@ -18,7 +18,7 @@ class NTPClient {
     UDP*          _udp;
     bool          _udpSetup       = false;
 
-    const char*   _poolServerName = "pool.ntp.org"; // Default time server
+    char *   _poolServerName = "pool.ntp.org"; // Default time server
     IPAddress     _poolServerIP;
     int           _port           = NTP_DEFAULT_LOCAL_PORT;
     long          _timeOffset     = 0;
@@ -41,9 +41,9 @@ class NTPClient {
   public:
     NTPClient(UDP& udp);
     NTPClient(UDP& udp, long timeOffset);
-    NTPClient(UDP& udp, const char* poolServerName);
-    NTPClient(UDP& udp, const char* poolServerName, long timeOffset);
-    NTPClient(UDP& udp, const char* poolServerName, long timeOffset, unsigned long updateInterval);
+    NTPClient(UDP& udp, char * poolServerName);
+    NTPClient(UDP& udp, char * poolServerName, long timeOffset);
+    NTPClient(UDP& udp, char * poolServerName, long timeOffset, unsigned long updateInterval);
     NTPClient(UDP& udp, IPAddress poolServerIP);
     NTPClient(UDP& udp, IPAddress poolServerIP, long timeOffset);
     NTPClient(UDP& udp, IPAddress poolServerIP, long timeOffset, unsigned long updateInterval);
@@ -53,7 +53,7 @@ class NTPClient {
      *
      * @param poolServerName
      */
-    void setPoolServerName(const char* poolServerName);
+    void setPoolServerName(char * poolServerName);
 
     /**
      * Starts the underlying UDP client with the default local port
